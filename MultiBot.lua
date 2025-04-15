@@ -27,6 +27,7 @@ MultiBot.index.actives = {}
 MultiBot.index.players = {}
 MultiBot.index.members = {}
 MultiBot.index.friends = {}
+MultiBot.spells = {}
 MultiBot.frames = {}
 MultiBot.units = {}
 MultiBot.tips = {}
@@ -2013,6 +2014,12 @@ MultiBot.tips.paladin.naura.barmor =
 "|cffff0000Left-Click to enable Armor-Aura|r\n"..
 "|cff999999(Execution-Order: Bot)|r";
 
+MultiBot.tips.paladin.naura.bcast =
+"Concentration-Aura|cffffffff\n"..
+"It enables the Concentration-Aura as Non-Combat-Aura.|r\n\n"..
+"|cffff0000Left-Click to enable Armor-Aura|r\n"..
+"|cff999999(Execution-Order: Bot)|r";
+
 MultiBot.tips.paladin.caura.master =
 "Combat-Aura|cffffffff\n"..
 "This Control allows you to select, enable or disable the default Combat-Aura.|r\n\n"..
@@ -2055,6 +2062,12 @@ MultiBot.tips.paladin.caura.barmor =
 "Armor-Aura|cffffffff\n"..
 "It enables the Armor-Aura as Combat-Aura.|r\n\n"..
 "|cffff0000Left-Click to enable Armor-Aura|r\n"..
+"|cff999999(Execution-Order: Bot)|r";
+
+MultiBot.tips.paladin.caura.bcast =
+"Concentration-Aura|cffffffff\n"..
+"It enables the Concentration-Aura as Combat-Aura.|r\n\n"..
+"|cffff0000Left-Click to enable Concentration-Aura|r\n"..
 "|cff999999(Execution-Order: Bot)|r";
 
 MultiBot.tips.paladin.dps.master =
