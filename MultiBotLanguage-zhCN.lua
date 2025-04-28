@@ -231,6 +231,9 @@ MultiBot.tips.move.reward =
 MultiBot.tips.move.talent =
 "右键点击并拖动以移动天赋";
 
+MultiBot.tips.move.raidus =
+"右键单击以拖动并移动团队编排器";
+
 -- 坦克 --
 
 MultiBot.tips.tanker.master = 
@@ -860,6 +863,12 @@ MultiBot.tips.main.rtsc =
 "|cffff0000左键单击以启用或禁用 RTSC 控制|r\n"..
 "|cff999999(执行命令: 系统)|r";
 
+MultiBot.tips.main.raidus =
+"团队编排器开关\n|cffffffff"..
+"此开关可打开或关闭团队编排器。|r\n\n"..
+"|cffff0000左键单击可打开或关闭团队编排器|r\n"..
+"|cff999999(执行命令: 系统)|r";
+
 MultiBot.tips.main.creator =
 "创造者切换\n|cffffffff"..
 "这个切换开关将启用或禁用创造者控制功能。|r\n\n"..
@@ -889,10 +898,10 @@ MultiBot.tips.main.lang.master =
 ]]--
 
 MultiBot.tips.main.expand =
-"Expand-Switch\n|cffffffff"..
-"This Switch will expand or reduce the Stay-Follow-Control.\n"..
-"|cffff0000Left-Click to expand or reduce the Stay-Follow-Control|r\n"..
-"|cff999999(Execution-Order: System)|r";
+"展开 - 开关\n|cffffffff"..
+"此开关将展开或缩小‘保持跟随控制’。\n"..
+"|cffff0000左键单击以展开或缩小‘保持跟随控制’|r\n"..
+"|cff999999(执行命令: 系统)|r";
 
 MultiBot.tips.main.release =
 "自动释放\n|cffffffff"..
@@ -1891,10 +1900,10 @@ MultiBot.tips.paladin.naura.barmor =
 "|cff999999(执行命令: 机器人)|r";
 
 MultiBot.tips.paladin.naura.bcast =
-"Concentration-Aura|cffffffff\n"..
-"It enables the Concentration-Aura as Non-Combat-Aura.|r\n\n"..
-"|cffff0000Left-Click to enable Armor-Aura|r\n"..
-"|cff999999(Execution-Order: Bot)|r";
+"专注光环|cffffffff\n"..
+"该功能将专注光环设置为非战斗状态常驻光环。|r\n\n"..
+"|cffff0000左键点击启用护甲光环|r\n"..
+"|cff999999(执行命令: 机器人)|r";
 
 MultiBot.tips.paladin.caura.master =
 "战斗光环|cffffffff\n"..
@@ -1941,10 +1950,10 @@ MultiBot.tips.paladin.caura.barmor =
 "|cff999999(执行命令: 机器人)|r";
 
 MultiBot.tips.paladin.caura.bcast =
-"Concentration-Aura|cffffffff\n"..
-"It enables the Concentration-Aura as Combat-Aura.|r\n\n"..
-"|cffff0000Left-Click to enable Concentration-Aura|r\n"..
-"|cff999999(Execution-Order: Bot)|r";
+"专注光环|cffffffff\n"..
+"该功能将专注光环设置为战斗状态光环。|r\n\n"..
+"|cffff0000左键单击以启用专注光环|r\n"..
+"|cff999999(执行命令: 机器人)|r";
 
 MultiBot.tips.paladin.dps.master =
 "DPS控制|cffffffff\n"..
@@ -2475,13 +2484,13 @@ MultiBot.tips.rtsc.group4 =
 "|cff999999(执行命令：队伍，团队)|r";
 
 MultiBot.tips.rtsc.group5 = 
-"Group-Selector\n|cffffffff"..
-"This Button selects the 5th Group and sends it to a Location.\n"..
-"Left-Click and then use the AEDM-Spell to mark a Location.|r\n\n"..
-"|cffff0000Left-Click to send the 5th Group|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r\n\n"..
-"|cffff0000Right-Click to select the 5th Group|r\n"..
-"|cff999999(Execution-Order: Raid, Party)|r";
+"队伍选择器\n|cffffffff"..
+"此按钮用于选择第五组队伍并将其派往指定位置。\n"..
+"左键点击，然后使用 AEDM 技能标记一个位置。|r\n\n"..
+"|cffff0000左键点击可派遣第五组队伍|r\n"..
+"|cff999999(执行命令：队伍，团队)|r\n\n"..
+"|cffff0000右键点击可选择第五组队伍|r\n"..
+"|cff999999(执行命令：队伍，团队)|r";
 
 MultiBot.tips.rtsc.tank = 
 "坦克选择器\n|cffffffff"..
