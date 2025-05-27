@@ -548,9 +548,9 @@ MultiBot.newFrame = function(pParent, pX, pY, pSize, oWidth, oHeight, oAlign)
 		return frame.buttons[pName]
 	end
 	
-	frame.addButton = function(pName, pX, pY, pTexture, pTip)
+	frame.addButton = function(pName, pX, pY, pTexture, pTip, oTemplate)
 		if(frame.buttons[pName] ~= nil) then frame.buttons[pName]:Hide() end
-		frame.buttons[pName] = MultiBot.newButton(frame, pX, pY, frame.size, pTexture, pTip)
+		frame.buttons[pName] = MultiBot.newButton(frame, pX, pY, frame.size, pTexture, pTip, oTemplate)
 		return frame.buttons[pName]
 	end
 	
@@ -675,8 +675,8 @@ end
 
 -- MULTIBOT:BUTTON --
 
-MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip)
-	local button = CreateFrame("Button", nil, pParent, "ActionButtonTemplate")
+MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip, oTemplate)
+	local button = CreateFrame("Button", nil, pParent, MultiBot.IF(oTemplate ~= nil, oTemplate, "ActionButtonTemplate"))
 	button:SetPoint("BOTTOMRIGHT", pX, pY)
 	button:SetSize(pSize, pSize)
 	button:Show()
@@ -685,6 +685,12 @@ MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip)
 	button.icon:SetTexture(MultiBot.IF(string.sub(pTexture, 1, 9) ~= "Interface", "Interface/Icons/", "") .. pTexture)
 	button.icon:SetAllPoints(button)
 	button.icon:Show()
+	
+	button.border = button:CreateTexture(nil, "ARTWORK")
+	button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+	button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
+	button.border:SetSize(pSize + 4, pSize + 4)
+	button.border:Hide()
 	
 	button:EnableMouse(true)
 	button:RegisterForClicks("LeftButtonDown", "RightButtonDown")
@@ -747,12 +753,14 @@ MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip)
 	
 	button.setDisable = function()
 		button.icon:SetDesaturated(1)
+		button.border:Hide()
 		button.state = false
 		return button
 	end
 	
 	button.setEnable = function()
 		button.icon:SetDesaturated(nil)
+		button.border:Show()
 		button.state = true
 		return button
 	end
@@ -814,6 +822,10 @@ MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip)
 	button:SetScript("OnLeave", function()
 		button:SetPoint("BOTTOMRIGHT", button.x, button.y)
 		button:SetSize(button.size, button.size)
+		
+		button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
+		button.border:SetSize(button.size + 4, button.size + 4)
+		
 		if(type(button.tip) == "string") then GameTooltip:Hide() end
 		if(type(button.tip) == "table") then button.tip:Hide() end
 	end)
@@ -821,6 +833,10 @@ MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip)
 	button:SetScript("PostClick", function(pSelf, pEvent)
 		button:SetPoint("BOTTOMRIGHT", button.x - 1, button.y + 1)
 		button:SetSize(button.size - 2, button.size - 2)
+		
+		button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
+		button.border:SetSize(button.size + 2, button.size + 2)
+		
 		if(type(button.tip) == "string") then GameTooltip:Hide() end
 		if(type(button.tip) == "table") then button.tip:Hide() end
 		
@@ -849,6 +865,7 @@ MultiBot.wowButton = function(pParent, pName, pX, pY, pWidth, pHeight, pSize)
 	button:RegisterForClicks("LeftButtonDown", "RightButtonDown")
 	
 	button.parent = pParent
+	button.state = true
 	button.y = pY
 	button.x = pX
 	
@@ -872,6 +889,20 @@ MultiBot.wowButton = function(pParent, pName, pX, pY, pWidth, pHeight, pSize)
 	
 	button.get = function()
 		return button.parent.get()
+	end
+	
+	-- SET --
+	
+	button.setDisable = function()
+		button:GetNormalTexture():SetDesaturated(1)
+		button.state = false
+		return button
+	end
+	
+	button.setEnable = function()
+		button:GetNormalTexture():SetDesaturated(nil)
+		button.state = true
+		return button
 	end
 	
 	-- DO --
